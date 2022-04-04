@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.901961, 0.882353, 0.811765, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 1
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.588235, 0.564706, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 1
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.32549, 0.290196, 0.258824, 1 )
+corner_radius_top_left = 35
+corner_radius_bottom_right = 35
+corner_detail = 20
+anti_aliasing = false
+
+[node name="Back" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -954.0
+margin_bottom = -504.0
+rect_min_size = Vector2( 70, 96 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BorderMargin" type="MarginContainer" parent="."]
+margin_right = 70.0
+margin_bottom = 96.0
+custom_constants/margin_right = 3
+custom_constants/margin_top = 3
+custom_constants/margin_left = 3
+custom_constants/margin_bottom = 3
+
+[node name="CenterPanel" type="PanelContainer" parent="BorderMargin"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 67.0
+margin_bottom = 93.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="DecalMargin" type="MarginContainer" parent="BorderMargin/CenterPanel"]
+margin_right = 64.0
+margin_bottom = 90.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="BorderMargin/CenterPanel/DecalMargin"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 62.0
+margin_bottom = 88.0
+custom_styles/panel = SubResource( 3 )

@@ -1,0 +1,245 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://UI/fonts/m3x6_32.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/fonts/m3x6_16.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Card.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.901961, 0.882353, 0.811765, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 1
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 1
+shadow_size = 1
+shadow_offset = Vector2( 1, 1 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.588235, 0.564706, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 1
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.901961, 0.882353, 0.811765, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.588235, 0.564706, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 1
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.32549, 0.290196, 0.258824, 1 )
+corner_radius_top_left = 35
+corner_radius_bottom_right = 35
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="Animation" id=6]
+resource_name = "Flip"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Front:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.12, 0.13, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Back:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.12, 0.13, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), true, false, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.12, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.01, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_pivot_offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.12, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 24, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Card" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -954.0
+margin_bottom = -504.0
+rect_min_size = Vector2( 70, 96 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Front" type="MarginContainer" parent="."]
+visible = false
+margin_right = 70.0
+margin_bottom = 96.0
+custom_constants/margin_right = 3
+custom_constants/margin_top = 3
+custom_constants/margin_left = 3
+custom_constants/margin_bottom = 3
+
+[node name="CenterPanel" type="PanelContainer" parent="Front"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 67.0
+margin_bottom = 93.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="DecalMargin" type="MarginContainer" parent="Front/CenterPanel"]
+margin_right = 64.0
+margin_bottom = 90.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="IconMargin" type="MarginContainer" parent="Front/CenterPanel/DecalMargin"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 62.0
+margin_bottom = 88.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Icon" type="PanelContainer" parent="Front/CenterPanel/DecalMargin/IconMargin"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 55.0
+margin_bottom = 81.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="Rank" type="Label" parent="Front/CenterPanel/DecalMargin/IconMargin/Icon"]
+margin_left = 17.0
+margin_top = 27.0
+margin_right = 33.0
+margin_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.901961, 0.882353, 0.811765, 1 )
+custom_colors/font_outline_modulate = Color( 0.32549, 0.290196, 0.258824, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+text = "01"
+align = 1
+valign = 1
+
+[node name="ID" type="VBoxContainer" parent="Front/CenterPanel/DecalMargin"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 10.0
+margin_bottom = 22.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 0
+
+[node name="Rank" type="Label" parent="Front/CenterPanel/DecalMargin/ID"]
+margin_right = 8.0
+margin_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.901961, 0.882353, 0.811765, 1 )
+custom_colors/font_color_shadow = Color( 0.32549, 0.290196, 0.258824, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+text = "01"
+align = 1
+valign = 1
+
+[node name="Suit" type="Label" parent="Front/CenterPanel/DecalMargin/ID"]
+margin_top = 10.0
+margin_right = 8.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.32549, 0.290196, 0.258824, 1 )
+text = "S"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="MarginContainer" parent="."]
+margin_right = 70.0
+margin_bottom = 96.0
+custom_constants/margin_right = 3
+custom_constants/margin_top = 3
+custom_constants/margin_left = 3
+custom_constants/margin_bottom = 3
+
+[node name="CenterPanel" type="PanelContainer" parent="Back"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 67.0
+margin_bottom = 93.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="DecalMargin" type="MarginContainer" parent="Back/CenterPanel"]
+margin_right = 64.0
+margin_bottom = 90.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Back/CenterPanel/DecalMargin"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 62.0
+margin_bottom = 88.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Flip = SubResource( 6 )

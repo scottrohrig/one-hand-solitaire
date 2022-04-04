@@ -1,0 +1,10 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://UI/fonts/ttf_files/m3x6.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 32
+outline_size = 2
+outline_color = Color( 0.901961, 0.882353, 0.811765, 1 )
+extra_spacing_top = -4
+font_data = ExtResource( 1 )
