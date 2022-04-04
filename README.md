@@ -22,9 +22,10 @@ Get rid of all your cards
 
 <a href='https://godotengine.org/'>
 <img src='./godot-icon.svg' width='40' fill='#478CBF'>
+<p style='background: #478CBF; width: 48px; text-align: center; color: #fff; border-radius: .3rem; padding: 2px 4px'>Godot</p>
 </a>
 
-![Godot](https://img.shields.io/badge/-Godot-478CBF?logo=godot&logoColor=white&logoWidth=30)
+<!-- ![Godot](https://img.shields.io/badge/-Godot-478CBF?logo=godot&logoColor=white&logoWidth=30) -->
 
 ## Questions
 
