@@ -21,7 +21,7 @@ Get rid of all your cards
 [^](#index)
 
 <a href='https://godotengine.org/'>
-<img src='./godot-icon.png' width='40'>
+<img src='./godot-icon.svg' width='40' fill='#478CBF'>
 </a>
 
 ![Godot](https://img.shields.io/badge/-Godot-478CBF?logo=godot&logoColor=white&logoWidth=30)
