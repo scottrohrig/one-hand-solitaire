@@ -8,8 +8,10 @@ var can_pick = true
 onready var suits = ['C','D','H','S']
 onready var face_cards = ['J','Q','K','A']
 onready var deck_db = []
+onready var stack_db = []
 
 export (NodePath) onready var deck = get_node(deck) as VBoxContainer
+export (NodePath) onready var hand_stack = get_node(hand_stack) as HBoxContainer
 export (NodePath) onready var hand = get_node(hand) as HBoxContainer
 export (NodePath) onready var discard = get_node(discard) as VBoxContainer
 
@@ -79,8 +81,10 @@ func pick_card():
 	yield(top_card.anim_player,'animation_finished')
 	reparent(top_card, top_card.get_parent(), hand)
 
+	# hand_db.append(card)
 
 func move_to_hand(card:Node):
+#	if hand has fewer than 4 cards and stack is not empty, top of stack reparents to hand
 	tween.interpolate_property(card, "rect_position", deck.rect_global_position, hand.rect_global_position,0.15,Tween.TRANS_CIRC,Tween.EASE_IN_OUT)
 	tween.start()
 
