@@ -108,10 +108,6 @@ func handle_stack():
 
 
 
-#	if hand has fewer than 4 cards and stack is not empty, top of stack reparents to hand
-	tween.interpolate_property(card, "rect_position", deck.rect_global_position, hand.rect_global_position,0.15,Tween.TRANS_CIRC,Tween.EASE_IN_OUT)
-	tween.start()
-
 
 func discard():
 	if rank_match_check():
