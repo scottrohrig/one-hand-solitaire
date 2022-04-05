@@ -83,11 +83,13 @@ func pick_card():
 	yield(top_card.anim_player,'animation_finished')
 	reparent(top_card, top_card.get_parent(), hand)
 
-	# TODO: handle card moving through arrays instead of reparenting.
-	# hand_db.append(card)
-	# hand_db.append(card)
 
 func move_to_hand(card:Node):
+	# TODO: handle card moving through arrays instead of reparenting.
+	# hand_db.append(card)
+	tween.interpolate_property(card, "rect_position", deck.rect_global_position, hand.rect_global_position,0.15,Tween.TRANS_CIRC,Tween.EASE_IN_OUT)
+	tween.start()
+
 # handles stacking hand > 4 cards in pile & spreading them again
 func handle_stack():
 #	if hand has more than 4 cards, first card reparents to top of stack
