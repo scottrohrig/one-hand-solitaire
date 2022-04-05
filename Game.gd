@@ -11,12 +11,10 @@ onready var deck_db = []
 onready var hand_db = []
 onready var stack_db = []
 onready var discard_db = []
-onready var stack_db = []
 
 export (NodePath) onready var deck = get_node(deck) as VBoxContainer
-export (NodePath) onready var hand_stack = get_node(hand_stack) as HBoxContainer
-export (NodePath) onready var hand_stack = get_node(hand_stack) as HBoxContainer
 export (NodePath) onready var hand = get_node(hand) as HBoxContainer
+export (NodePath) onready var hand_stack = get_node(hand_stack) as HBoxContainer
 export (NodePath) onready var discard = get_node(discard) as VBoxContainer
 
 onready var tween = $Tween
