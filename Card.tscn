@@ -114,6 +114,7 @@ __meta__ = {
 }
 
 [node name="Front" type="MarginContainer" parent="."]
+visible = false
 margin_right = 70.0
 margin_bottom = 96.0
 custom_constants/margin_right = 3
@@ -254,7 +255,6 @@ align = 1
 valign = 1
 
 [node name="Back" type="MarginContainer" parent="."]
-visible = false
 margin_right = 70.0
 margin_bottom = 96.0
 custom_constants/margin_right = 3
