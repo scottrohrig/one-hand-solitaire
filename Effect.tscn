@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://UI/fonts/m3x6_32.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/fonts/m3x6_32_effect.tres" type="DynamicFont" id=1]
 
 [sub_resource type="Curve" id=1]
 min_value = -200.0
