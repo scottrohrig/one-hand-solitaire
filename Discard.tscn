@@ -3,13 +3,12 @@
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.6, 0.588235, 0.564706, 1 )
 draw_center = false
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 0.32549, 0.290196, 0.258824, 1 )
+border_color = Color( 0.121569, 0.988235, 1, 1 )
 corner_radius_top_left = 3
 corner_radius_top_right = 1
 corner_radius_bottom_right = 3
@@ -23,7 +22,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 0.32549, 0.290196, 0.258824, 1 )
+border_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
 draw_center = false
@@ -31,7 +30,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 0.32549, 0.290196, 0.258824, 1 )
+border_color = Color( 1, 1, 1, 1 )
 
 [node name="Discard" type="PanelContainer"]
 margin_left = 7.0
