@@ -8,9 +8,13 @@ var can_pick = true
 onready var suits = ['C','D','H','S']
 onready var face_cards = ['J','Q','K','A']
 onready var deck_db = []
+onready var hand_db = []
+onready var stack_db = []
+onready var discard_db = []
 onready var stack_db = []
 
 export (NodePath) onready var deck = get_node(deck) as VBoxContainer
+export (NodePath) onready var hand_stack = get_node(hand_stack) as HBoxContainer
 export (NodePath) onready var hand_stack = get_node(hand_stack) as HBoxContainer
 export (NodePath) onready var hand = get_node(hand) as HBoxContainer
 export (NodePath) onready var discard = get_node(discard) as VBoxContainer
@@ -81,9 +85,29 @@ func pick_card():
 	yield(top_card.anim_player,'animation_finished')
 	reparent(top_card, top_card.get_parent(), hand)
 
+	# TODO: handle card moving through arrays instead of reparenting.
+	# hand_db.append(card)
 	# hand_db.append(card)
 
 func move_to_hand(card:Node):
+# handles stacking hand > 4 cards in pile & spreading them again
+func handle_stack():
+#	if hand has more than 4 cards, first card reparents to top of stack
+	if hand.get_child_count() < 4 and hand_stack.get_child_count() <= 0:
+		return
+	if hand.get_child_count() >= 4:
+		var bottom = hand_db.pop_front()
+		stack_db.append(bottom)
+		reparent(bottom, hand, hand_stack)
+#	if hand has fewer than 4 cards and stack is not empty, top of stack reparents to hand
+#	print( hand.get_child_count() < 4 and hand_stack.get_child_count() > 0 )
+	if hand.get_child_count() < 4 and hand_stack.get_child_count() > 0:
+		var top = stack_db.pop_back()
+		hand_db.push_front(top)
+		reparent(top, hand_stack, hand)
+
+
+
 #	if hand has fewer than 4 cards and stack is not empty, top of stack reparents to hand
 	tween.interpolate_property(card, "rect_position", deck.rect_global_position, hand.rect_global_position,0.15,Tween.TRANS_CIRC,Tween.EASE_IN_OUT)
 	tween.start()
