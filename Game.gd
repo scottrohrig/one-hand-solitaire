@@ -151,7 +151,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("lmb") and can_pick:
 			pick_card()
 			can_pick = false
-		discard()
+			discard()
 
 
 func _on_DeckPlaceholder_mouse_entered() -> void:
