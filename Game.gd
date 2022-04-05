@@ -119,6 +119,8 @@ func discard():
 		var last_card_rank = hand.get_children()[-1].rank
 		instance_effect(effect, hand.rect_global_position, last_card_rank+"'s")
 		for i in range(4):
+			if not hand.get_child_count():
+				continue
 			var last_card = hand.get_children()[-1]  # Bug TODO: if suit then rank match makes 0 cards left, index error
 			reparent(last_card, last_card.get_parent(), world)
 			yield(get_tree(), "idle_frame")
@@ -131,6 +133,9 @@ func discard():
 		var last_card_suit = hand.get_children()[-1].suit
 		instance_effect(effect, hand.rect_global_position, last_card_suit+"'s")
 		for i in range(2):
+#			bug if clicking too fast for tween, goes out of range
+			if hand.get_child_count() < 2:
+				continue
 			var next_last_card = hand.get_children()[-2]
 			reparent(next_last_card, next_last_card.get_parent(), world)
 			yield(get_tree(),"idle_frame")
